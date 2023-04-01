@@ -3,4 +3,4 @@ project(DataStructureApplications)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(DataStructureApplications main.cpp InfixToPostfix.h)
+add_executable(DataStructureApplications main.cpp InfixToPostfix.h LongestValidParentheses.h)
