@@ -44,90 +44,94 @@ public:
     {
         container = new T[capacity];
     }
+    void push(T item);
+    T pop();
+    T Top();
+    void print();
+
     ll size(){return (top+1);}
-    bool isFull()
-    {
-        return (top >= capacity - 1);
-    }
-    bool isEmpty()
-    {
-        return (top == -1);
-    }
-    void push(T item)
-    {
-        StackOverFlowException over;
-        try{
-            if(this->isFull())
-            {
-                throw over;
-            }
-            else
-            {
-                top++;
-                container[top] = item;
-            }
-        }
-        catch (...)
-        {
-            cout << over.what();
-        }
-    }
-    T pop()
-    {
-        StackEmptyException empty;
-        try {
-            if(this->isEmpty())
-            {
-                throw empty;
-            }
-            else
-            {
-                return container[top--];
-            }
-        }
-        catch (...)
-        {
-            cout << empty.what();
-            exit(0);
-        }
-    }
-    void clear()
-    {
-        top = -1;
-    }
-    T Top()
-    {
-        StackEmptyException empty;
-        try {
-            if(this->isEmpty())
-            {
-                throw empty;
-            }
-            else
-            {
-                return container[top];
-            }
-        }
-        catch (...)
-        {
-            cout << empty.what();
-            exit(0);
-        }
-    }
-    void print()
-    {
-        for(ll i = top ; i >= 0 ; i--)
-        {
-            cout << container[i] << ' ';
-        }
-        cout << '\n';
-    }
+    bool isFull(){return (top >= capacity - 1);}
+    bool isEmpty() {return (top == -1);}
+    void clear(){top = -1;}
+
     ~Stack()
     {
         delete[] container;
     }
 };
 
+template <class T>
+void Stack<T>::push(T item)
+{
+    StackOverFlowException over;
+    try{
+        if(this->isFull())
+        {
+            throw over;
+        }
+        else
+        {
+            top++;
+            container[top] = item;
+        }
+    }
+    catch (...)
+    {
+        cout << over.what();
+    }
+}
+
+template <class T>
+T Stack<T>::pop()
+{
+    StackEmptyException empty;
+    try {
+        if(this->isEmpty())
+        {
+            throw empty;
+        }
+        else
+        {
+            return container[top--];
+        }
+    }
+    catch (...)
+    {
+        cout << empty.what();
+        exit(0);
+    }
+}
+
+template <class T>
+T Stack<T>::Top()
+{
+    StackEmptyException empty;
+    try {
+        if(this->isEmpty())
+        {
+            throw empty;
+        }
+        else
+        {
+            return container[top];
+        }
+    }
+    catch (...)
+    {
+        cout << empty.what();
+        exit(0);
+    }
+}
+
+template <class T>
+void Stack<T>::print()
+{
+    for(ll i = top ; i >= 0 ; i--)
+    {
+        cout << container[i] << ' ';
+    }
+    cout << '\n';
+}
 
 
 #endif //DATASTRUCTUREALGORITHMS_STACK_H

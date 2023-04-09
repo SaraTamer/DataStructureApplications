@@ -26,84 +26,18 @@ public:
 
         arr = new T[maxSz];
     }
-    void insert(T item)
-    {
-        if(isFull())
-        {
-            cout << "The list is FULL!\n";
-            return;
-        }
-        arr[sz] = item;
-        sz++;
+    void insert(T item);
+    void insertAt(T item , ll index);
+    void replaceAt(T item , ll index);
 
-    }
-    void insertAt(T item , ll index)
-    {
-        if(isFull())
-        {
-            cout << "The list is FULL!\n";
-            return;
-        }
-        if(index < 0 || index > sz)
-        {
-            cout << "Position out of scope!\n";
-            return;
-        }
-        for(ll i = sz ; i >= index; i--)
-        {
-            arr[i] = arr[i - 1];
-        }
-        arr[index] = item;
-        sz++;
-    }
-    void replaceAt(T item , ll index)
-    {
-        if(index < 0 || index >= sz)
-        {
-            cout << "Position out of scope!\n";
-            return;
-        }
-        arr[index] = item;
-    }
-    T retrieveAt(ll index)
-    {
-        if(index < 0 || index >= sz)
-        {
-            cout << "Position out of scope!\n";
-            exit(1);
-        }
-        return arr[index];
-    }
-    bool isItemAtEqual(T item , ll index)
-    {
-        if(index < 0 || index >= sz)
-        {
-            cout << "Position out of scope!\n";
-            exit(1);
-        }
-        return (arr[index] == item);
-    }
-    void removeAt(ll index)
-    {
-        if(index < 0 || index >= sz)
-        {
-            cout << "Position out of scope!\n";
-            return;
-        }
-        for(ll i = index; i < sz; i++)
-        {
-            arr[i] = arr[i + 1];
-        }
-        sz--;
-    }
-    void print()
-    {
-        for(ll i = 0; i < sz; i++)
-        {
-            cout << arr[i] << ' ';
-        }
-        cout << '\n';
-    }
+    T retrieveAt(ll index);
+
+    bool isItemAtEqual(T item , ll index);
+
+    void removeAt(ll index);
+
+    void print();
+
     ll size(){return sz;}
     ll maxSize(){return maxSz;}
     bool isEmpty(){return (sz == 0);}
@@ -111,4 +45,92 @@ public:
     void clear(){sz = 0;}
     ~ArrayBasedList(){delete[] arr;}
 };
+
+
+template <class T>
+void ArrayBasedList<T>::insert(T item)
+{
+    if(isFull())
+    {
+        cout << "The list is FULL!\n";
+        return;
+    }
+    arr[sz] = item;
+    sz++;
+
+}
+template <class T>
+void ArrayBasedList<T>::insertAt(T item , ll index)
+{
+    if(isFull())
+    {
+        cout << "The list is FULL!\n";
+        return;
+    }
+    if(index < 0 || index > sz)
+    {
+        cout << "Position out of scope!\n";
+        return;
+    }
+    for(ll i = sz ; i >= index; i--)
+    {
+        arr[i] = arr[i - 1];
+    }
+    arr[index] = item;
+    sz++;
+}
+template <class T>
+void ArrayBasedList<T>::replaceAt(T item , ll index)
+{
+    if(index < 0 || index >= sz)
+    {
+        cout << "Position out of scope!\n";
+        return;
+    }
+    arr[index] = item;
+}
+template <class T>
+T ArrayBasedList<T>::retrieveAt(ll index)
+{
+    if(index < 0 || index >= sz)
+    {
+        cout << "Position out of scope!\n";
+        exit(1);
+    }
+    return arr[index];
+}
+template <class T>
+bool ArrayBasedList<T>::isItemAtEqual(T item , ll index)
+{
+    if(index < 0 || index >= sz)
+    {
+        cout << "Position out of scope!\n";
+        exit(1);
+    }
+    return (arr[index] == item);
+}
+template <class T>
+void ArrayBasedList<T>::removeAt(ll index)
+{
+    if(index < 0 || index >= sz)
+    {
+        cout << "Position out of scope!\n";
+        return;
+    }
+    for(ll i = index; i < sz; i++)
+    {
+        arr[i] = arr[i + 1];
+    }
+    sz--;
+}
+template <class T>
+void ArrayBasedList<T>::print()
+{
+    for(ll i = 0; i < sz; i++)
+    {
+        cout << arr[i] << ' ';
+    }
+    cout << '\n';
+}
+
 #endif //DATASTRUCTUREALGORITHMS_ARRAY_BASEDLIST_H
