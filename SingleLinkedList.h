@@ -22,11 +22,6 @@ private:
     struct Node {
         Node *next;
         T value;
-
-        Node() {
-            value = 0;
-
-        }
     };
 
     Node *head = new Node();
@@ -309,7 +304,7 @@ void SingleLinkedList<T>::print() {
         temp = temp->next;
     }
     cout << endl;
-    cout << "Size of list: " << sz <<"\n";
+
 
 }
 
