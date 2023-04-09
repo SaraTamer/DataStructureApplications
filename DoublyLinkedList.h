@@ -20,7 +20,6 @@ private:
         T value;
 
         Node() {
-            value = 0;
             next = prev = nullptr;
         }
     };
@@ -231,7 +230,25 @@ public:
         }
         return (tmp->value == item);
     }
-    void clear(){sz = 0;}
+    void reverse()
+    {
+        Node *tmp = head;
+        Node *prv = nullptr;
+        while (tmp != nullptr)
+        {
+            tmp->prev = tmp->next;
+            tmp->next = prv;
+            prv = tmp;
+            tmp = tmp->prev;
+        }
+        tail = head;
+        head = prv;
+    }
+    void clear()
+    {
+        while(!isEmpty())
+            removeAtHead();
+    }
 
     void forwardTraversal()
     {
@@ -269,7 +286,7 @@ public:
         tail = nullptr;
         sz = 0;
     }
-//// TODO: swap , reverse , insertAfter
+//// TODO: swap , testing of insertAfter
 };
 
 

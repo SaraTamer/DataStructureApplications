@@ -47,10 +47,10 @@ int main()
 
 
 
-// Stack Applications
+//// Stack Applications
 
     // Infix to postfix testing
-//
+
 //    string expression = "(3+2)+7/2*((7+3)*2)";
 //    string expression2 = "X^Y / (5*Z) + 2";
 //    string expression3 = "A + B * C + D";
@@ -58,7 +58,7 @@ int main()
 //    cout << infixToPostfix(expression4);
 
     // longest valid parentheses testing
-//
+
 //    string expression = "(()";
 //    string expression2 = ")()())((()))";
 //    cout << longestValidParentheses(expression2);
