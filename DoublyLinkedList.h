@@ -100,7 +100,15 @@ public:
             sz++;
         }
     }
-
+    void insertAfter(Node * prv, T item)
+    {
+        Node* tmp = new Node;
+        tmp->value = item;
+        tmp->prev = prv;
+        tmp->next = prv->next;
+        prv->next->prev = tmp;
+        prv->next = tmp;
+    }
     void removeAtHead()
     {
         if(isEmpty())
