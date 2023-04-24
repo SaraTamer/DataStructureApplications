@@ -38,6 +38,8 @@ public:
     void insertAt(T item , ll index);
     void insertAfter(Node * prv, T item);
 
+    void swap(ll fIndex, ll sIndex);
+
     void removeAtHead();
     void removeAtTail();
     void removeAt(ll index);
@@ -144,7 +146,75 @@ void DoublyLinkedList<T>::insertAt(T item , ll index)
         sz++;
     }
 }
+template<class T>
+void DoublyLinkedList<T>::swap(ll fIndex, ll sIndex)
+{
+    if(fIndex > sz || fIndex < 0 || sIndex > sz || sIndex < 0)
+    {
+        cout << "Position out of scope!\n";
+        return;
+    }
+    if(fIndex == sIndex)
+        return;
+    Node* tmp1 = head;
+    Node* tmp2 = head;
+    for(ll i = 0; i < sz; i++)
+    {
+        if(i == fIndex)
+            break;
+        tmp1 = tmp1->next;
+    }
+    for(ll i = 0; i < sz; i++)
+    {
+        if(i == sIndex)
+            break;
+        tmp2 = tmp2->next;
+    }
+    if(tmp1 != head)
+    {
+        tmp1->prev->next = tmp2;
+    }
+    if(tmp1 != tail && tmp1->next != tmp2)
+        tmp1->next->prev = tmp2;
 
+    if(tmp2 != head && tmp1->next != tmp2)
+    {
+        tmp2->prev->next = tmp1;
+    }
+    if(tmp2 != tail)
+        tmp2->next->prev = tmp1;
+
+    Node* prevTmp = tmp1->prev;
+    Node* nextTmp = tmp1->next;
+
+    if(tmp1->next == tmp2)
+    {
+        tmp1->next = tmp2->next;
+        tmp2->prev = prevTmp;
+        tmp1->prev = tmp2->prev;
+        tmp2->next = tmp1;
+    }
+    else
+    {
+        tmp1->next = tmp2->next;
+        tmp1->prev = tmp2->prev;
+
+        tmp2->next = nextTmp;
+        tmp2->prev = prevTmp;
+    }
+    if(tmp1 == head)
+    {
+        head = tmp2;
+    }
+    else if(tmp2 == head)
+        head = tmp1;
+
+    if(tmp1 == tail)
+        tail = tmp2;
+    else if(tmp2 == tail)
+        tail = tmp1;
+
+}
 template <class T>
 void DoublyLinkedList<T>::insertAfter(Node * prv, T item)
 {
