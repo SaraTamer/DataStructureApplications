@@ -2,6 +2,8 @@
 #include "InfixToPostfix.h"
 #include "LongestValidParentheses.h"
 #include "MergeSortedLinkedLists.h"
+#include "GenerateBinaryNumbers.h"
+
 
 using namespace std;
 
@@ -59,6 +61,15 @@ int main()
 //    lst3.insertAtTail(10);
 //    SingleLinkedList<int>::Node* arr[] = {lst1.head, lst2.head, lst3.head};
 //    mergeKLists(arr, 3).print();
+
+
+//// Queue Applications
+
+    //Generate Binary numbers from 1 to n
+
+//    generateBinaryNumbers<int>(100).print();
+
+
 
     return 0;
 }
