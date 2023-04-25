@@ -1,7 +1,7 @@
 #include <iostream>
 #include "InfixToPostfix.h"
 #include "LongestValidParentheses.h"
-
+#include "MergeSortedLinkedLists.h"
 
 using namespace std;
 
@@ -24,6 +24,41 @@ int main()
 //    string expression = "(()";
 //    string expression2 = ")()())((()))";
 //    cout << longestValidParentheses(expression2);
+
+
+//// Linked List Applications
+
+    // Merge K sorted Linked Lists
+//    SingleLinkedList<int> lst1;
+//    lst1.insertAtTail(1);
+//    lst1.insertAtTail(4);
+//    lst1.insertAtTail(5);
+//    SingleLinkedList<int> lst2;
+//    lst2.insertAtTail(1);
+//    lst2.insertAtTail(3);
+//    lst2.insertAtTail(4);
+//    SingleLinkedList<int> lst3;
+//    lst3.insertAtTail(2);
+//    lst3.insertAtTail(6);
+//    SingleLinkedList<int>::Node* arr[] = {lst1.head , lst2.head, lst3.head};
+//    mergeKLists(arr, 3).print();
+
+//    SingleLinkedList<int> lst1;
+//    lst1.insertAtTail(1);
+//    lst1.insertAtTail(3);
+//    lst1.insertAtTail(5);
+//    lst1.insertAtTail(7);
+//    SingleLinkedList<int> lst2;
+//    lst2.insertAtTail(2);
+//    lst2.insertAtTail(4);
+//    lst2.insertAtTail(6);
+//    lst2.insertAtTail(8);
+//    SingleLinkedList<int> lst3;
+//    lst3.insertAtTail(0);
+//    lst3.insertAtTail(9);
+//    lst3.insertAtTail(10);
+//    SingleLinkedList<int>::Node* arr[] = {lst1.head, lst2.head, lst3.head};
+//    mergeKLists(arr, 3).print();
 
     return 0;
 }

@@ -3,4 +3,4 @@ project(DataStructureApplications)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(DataStructureApplications main.cpp InfixToPostfix.h LongestValidParentheses.h SingleLinkedList.h Array-basedList.h DoublyLinkedList.h CircularLinkedList.h Queue.h)
+add_executable(DataStructureApplications main.cpp InfixToPostfix.h LongestValidParentheses.h SingleLinkedList.h Array-basedList.h DoublyLinkedList.h CircularLinkedList.h Queue.h MergeSortedLinkedLists.h)

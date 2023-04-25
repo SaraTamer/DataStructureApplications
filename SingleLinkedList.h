@@ -16,24 +16,23 @@ using namespace std;
 
 
 
+
 template <class T>
 class SingleLinkedList {
 private:
-    struct Node {
-        Node *next;
-        T value;
-    };
+public:
 
+    struct Node;
     Node *head = new Node();
     Node *tail = new Node();
     ll sz;
 
-public:
     SingleLinkedList()
     {
         head = tail = nullptr;
         sz =0;
     }
+
     void insertAtHead(T item);
     void insertAtTail(T item);
     void insertAt(T item , ll index);
@@ -57,12 +56,16 @@ public:
 
     void clear();
 
+    SingleLinkedList& operator=(const SingleLinkedList& list);
+
     ~SingleLinkedList();
-
-
 };
 
-
+template <class T>
+struct SingleLinkedList<T>::Node {
+    Node *next;
+    T value;
+};
 template<class T>
 void SingleLinkedList<T>::insertAtHead(T item) {
     Node *tmp = new Node;
@@ -318,7 +321,19 @@ void SingleLinkedList<T>::clear() {
 }
 
 
-
+template <class T>
+SingleLinkedList<T>& SingleLinkedList<T>::operator=(const SingleLinkedList& list)
+{
+    this->clear();
+    SingleLinkedList<T> tmp;
+    tmp.head = list.head;
+    for(ll i = 0; i < list.sz; i++)
+    {
+        this->insertAtTail(tmp.head->value);
+        tmp.head = tmp.head->next;
+    }
+    return *this;
+}
 
 template<class T>
 SingleLinkedList<T>::~SingleLinkedList() {
