@@ -3,6 +3,7 @@
 #include "LongestValidParentheses.h"
 #include "MergeSortedLinkedLists.h"
 #include "GenerateBinaryNumbers.h"
+#include "Stack_with-Queue.h"
 
 
 using namespace std;
@@ -68,6 +69,29 @@ int main()
     //Generate Binary numbers from 1 to n
 
 //    generateBinaryNumbers<int>(100).print();
+//    stack using q
+//
+//        Stack_Q<int> sq;
+//        sq.push(1);
+//        sq.push(2);
+//        sq.push(3);
+//        sq.print();
+//
+//        cout << sq.pop() << endl; // output: 3
+//        cout << sq.pop() << endl; // output: 2
+//        cout << sq.pop() << endl; // output: 1
+//        cout << "is the stack empty ?"<<sq.isEmpty()<<endl;
+//
+//
+//        sq.push(4);
+//        sq.push(5);
+//        sq.print();
+//        cout << sq.stackSize()<<endl;
+//        sq.clear();
+
+
+
+
 
 
 
