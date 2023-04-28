@@ -47,7 +47,7 @@ public:
     bool isExist(T item);
     bool isItemAtEqual(T item , ll index);
 
-    void swap (int index1,int index2);
+    void swap (ll index1,ll index2);
 
     ll size(){return sz;}
     bool isEmpty(){return (sz == 0);}
@@ -184,7 +184,7 @@ void SingleLinkedList<T>::removeAtTail() {
 }
 
 template<class T>
-void SingleLinkedList<T>::removeAt(long long int index) {
+void SingleLinkedList<T>::removeAt(ll index) {
     if(index >= sz || index < 0)
     {
         cout << "Position out of scope!\n";
@@ -219,7 +219,7 @@ void SingleLinkedList<T>::removeAt(long long int index) {
 }
 
 template<class T>
-T SingleLinkedList<T>::retrieveAt(long long int index) {
+T SingleLinkedList<T>::retrieveAt(ll index) {
     if(index >= sz || index < 0)
     {
         cout << "Position out of scope!\n";
@@ -294,9 +294,54 @@ bool SingleLinkedList<T>::isItemAtEqual(T item, long long int index) {
 
 
 template<class T>
-void SingleLinkedList<T>::swap(int index1, int index2) {
+void SingleLinkedList<T>::swap(ll index1, ll index2) {
+    if (isEmpty()) {                            // check if the list is empty
+        cout << "The list is EMPTY!\n";
+        exit(1);
+    } else if (index1 < 0 || index1 >= sz || index2 < 0 || index2 >= sz ) { // check if indices are out of range
+        cout << "Position out of scope!\n";
+        exit(1);
+    } else if (index1 == index2) {              // check if indices are the same
+        return;
+    }
+
+    Node* temp1 = head;
+    Node* prev1 = nullptr;
 
 
+    for (ll i = 0; i < index1; i++) {       //prev1 is to point to the nodes to be swapped
+        prev1 = temp1;
+        temp1 = temp1->next;
+    }
+
+    Node* temp2 = head;
+    Node* prev2 = nullptr;
+
+
+    for (ll i = 0; i < index2 ; i++) {    //prev2 is to point to the nodes to be swapped
+        prev2 = temp2;
+        temp2 = temp2->next;
+    }
+
+    // update the previous node's next pointer to point to the swapped node
+    if (prev1) {                        //if there is a previous node
+        prev1->next = temp2;             //connect it to the other node to be swapped
+    }
+    else {
+        head = temp2;                    //make the other node as the head
+    }
+
+    // update the previous node's next pointer to point to the swapped node
+    if (prev2) {
+        prev2->next = temp1;
+    } else {
+        head = temp1;
+    }
+
+    // swap the next pointers of the nodes
+    Node* temp = temp1->next;
+    temp1->next = temp2->next;
+    temp2->next = temp;
 }
 
 template<class T>
@@ -315,22 +360,30 @@ void SingleLinkedList<T>::print() {
 template<class T>
 void SingleLinkedList<T>::clear() {
     while (!isEmpty()){
-        removeAtTail();
+        removeAtHead();
     }
 
 }
 
 
 template <class T>
-SingleLinkedList<T>& SingleLinkedList<T>::operator=(const SingleLinkedList& list)
+SingleLinkedList<T>& SingleLinkedList<T>::operator=(const SingleLinkedList& other)
 {
-    this->clear();
-    SingleLinkedList<T> tmp;
-    tmp.head = list.head;
-    for(ll i = 0; i < list.sz; i++)
-    {
-        this->insertAtTail(tmp.head->value);
-        tmp.head = tmp.head->next;
+    if (this != &other) {
+        clear(); // clear the existing list
+
+        if (other.head == nullptr) {
+            head = nullptr; // if other list is empty, set this list to empty
+        }
+        else {
+            Node* temp = other.head;
+            while (temp != nullptr) {
+                Node* node = new Node;
+                node->value = temp->value;
+                insertAtTail(node->value);
+                temp = temp->next;
+            }
+        }
     }
     return *this;
 }

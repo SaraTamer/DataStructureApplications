@@ -1,0 +1,13 @@
+//
+// Created by DELL on 4/28/2023.
+//
+
+#ifndef DATASTRUCTUREAPPLICATIONS_SORTING_QUEUE_H
+#define DATASTRUCTUREAPPLICATIONS_SORTING_QUEUE_H
+
+#include "Queue.h"
+#include "SingleLinkedList.h"
+
+
+
+#endif //DATASTRUCTUREAPPLICATIONS_SORTING_QUEUE_H

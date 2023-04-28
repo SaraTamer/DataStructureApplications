@@ -1,9 +1,12 @@
 #include <iostream>
+#include "SingleLinkedList.h"
 #include "InfixToPostfix.h"
 #include "LongestValidParentheses.h"
 #include "MergeSortedLinkedLists.h"
 #include "GenerateBinaryNumbers.h"
 #include "Stack_with-Queue.h"
+#include "sorting Queue.h"
+#include "Combine Nodes Between Zeros.h"
 
 
 using namespace std;
@@ -64,12 +67,49 @@ int main()
 //    mergeKLists(arr, 3).print();
 
 
+
+//     combine nodes between zeros
+
+//    SingleLinkedList<int> list;
+//    SingleLinkedList<int> list1;
+//    list.insertAtTail(0);
+//    list.insertAtTail(1);
+//    list.insertAtTail(0);
+//    list.insertAtTail(3);
+//    list.insertAtTail(0);
+//    list.insertAtTail(2);
+//    list.insertAtTail(2);
+//    list.insertAtTail(0);
+//
+//    list1 = list;
+//    list.print();
+//    combine(list);
+//    list.print();
+//    list1.print();
+//
+
+
+
+
+
+
+
 //// Queue Applications
 
     //Generate Binary numbers from 1 to n
 
 //    generateBinaryNumbers<int>(100).print();
-//    stack using q
+
+
+
+
+
+
+
+
+
+
+///    stack using q
 //
 //        Stack_Q<int> sq;
 //        sq.push(1);
@@ -90,9 +130,21 @@ int main()
 //        sq.clear();
 
 
+///sorting Queue
 
-
-
+//    Queue<int >Q;
+//    Q.enqueue(2);
+//    Q.enqueue(4);
+//    Q.enqueue(7);
+//    Q.enqueue(30);
+//    Q.enqueue(1);
+//    Q.enqueue(6);
+//    Q.enqueue(3);
+//    Q.enqueue(8);
+//    Q.enqueue(0);
+//    Q.dequeue();
+//    Q.print();
+//    Q.print();
 
 
     return 0;
