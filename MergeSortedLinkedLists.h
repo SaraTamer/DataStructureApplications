@@ -7,7 +7,8 @@
 
 using namespace std;
 
-SingleLinkedList<int> merge(SingleLinkedList<int>::Node* h1 , SingleLinkedList<int>::Node* h2)
+template<class T>
+SingleLinkedList<int> merge(Node<T>* h1 ,Node<T>* h2)
 {
     SingleLinkedList<int> subMerged;
     if(h2 != nullptr)
@@ -58,7 +59,8 @@ SingleLinkedList<int> merge(SingleLinkedList<int>::Node* h1 , SingleLinkedList<i
     return subMerged;
 }
 
-SingleLinkedList<int> mergeKLists(SingleLinkedList<int>::Node* h[] , int k)
+template<class T>
+SingleLinkedList<int> mergeKLists(Node<T>* h[] , int k)
 {
     SingleLinkedList<int> merged;
     while (k--)

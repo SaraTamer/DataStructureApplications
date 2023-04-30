@@ -9,7 +9,7 @@
 #include "Stack.h"
 
 void combine(SingleLinkedList<int> &list){
-    SingleLinkedList<int>::Node*temp = list.head;
+   Node<int>*temp = list.head;
 
     //temp->value = list.head->value;
 

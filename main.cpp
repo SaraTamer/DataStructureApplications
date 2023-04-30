@@ -132,19 +132,20 @@ int main()
 
 ///sorting Queue
 
-//    Queue<int >Q;
-//    Q.enqueue(2);
-//    Q.enqueue(4);
-//    Q.enqueue(7);
-//    Q.enqueue(30);
-//    Q.enqueue(1);
-//    Q.enqueue(6);
-//    Q.enqueue(3);
-//    Q.enqueue(8);
-//    Q.enqueue(0);
-//    Q.dequeue();
-//    Q.print();
-//    Q.print();
+    Queue<int >Q;
+    Q.enqueue(2);
+    Q.enqueue(4);
+    Q.enqueue(7);
+    Q.enqueue(30);
+    Q.enqueue(1);
+    Q.enqueue(6);
+    Q.enqueue(3);
+    Q.enqueue(8);
+    Q.enqueue(0);
+    Q.dequeue();
+    Q.print();
+    sort_Q(Q);
+    Q.print();
 
 
     return 0;
