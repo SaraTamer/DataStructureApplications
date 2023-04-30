@@ -63,11 +63,6 @@ public:
     ~SingleLinkedList();
 };
 
-//template <class T>
-//struct SingleLinkedList<T>::Node {
-//    Node *next;
-//    T value;
-//};
 template<class T>
 void SingleLinkedList<T>::insertAtHead(T item) {
     Node<T> *tmp = new Node<T>;
@@ -107,7 +102,7 @@ void SingleLinkedList<T>::insertAt(T item, long long int index) {
     if(index > sz || index < 0)
     {
         cout << "Position out of scope!\n";
-        exit(1);
+        return;
     }
     if(index == 0)
     {
@@ -181,8 +176,6 @@ void SingleLinkedList<T>::removeAtTail() {
         tail = temp;
         sz--;
     }
-
-
 }
 
 template<class T>
@@ -225,7 +218,7 @@ T SingleLinkedList<T>::retrieveAt(ll index) {
     if(index > sz || index < 0)
     {
         cout << "Position out of scope!\n";
-        exit(1);
+        return T();
     }
     if(isEmpty())
     {
@@ -277,12 +270,13 @@ bool SingleLinkedList<T>::isItemAtEqual(T item, long long int index) {
     if(isEmpty())
     {
         cout << "The list is EMPTY!\n";
-        exit(1);
+        return false;
     }
     else if(index < 0 || index >= sz)
     {
         cout << "Position out of scope!\n";
-        exit(1);
+        return false;
+
     }
     else{
         Node<T>* tmp = head;
@@ -299,10 +293,10 @@ template<class T>
 void SingleLinkedList<T>::swap(ll index1, ll index2) {
     if (isEmpty()) {                            // check if the list is empty
         cout << "The list is EMPTY!\n";
-        exit(1);
+        return;
     } else if (index1 < 0 || index1 >= sz || index2 < 0 || index2 >= sz ) { // check if indices are out of range
         cout << "Position out of scope!\n";
-        exit(1);
+        return;
     } else if (index1 == index2) {              // check if indices are the same
         return;
     }

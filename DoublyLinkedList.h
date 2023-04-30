@@ -191,14 +191,13 @@ void DoublyLinkedList<T>::swap(ll fIndex, ll sIndex)
     {
         tmp1->next = tmp2->next;
         tmp2->prev = prevTmp;
-        tmp1->prev = tmp2->prev;
+        tmp1->prev = tmp2;
         tmp2->next = tmp1;
     }
     else
     {
         tmp1->next = tmp2->next;
         tmp1->prev = tmp2->prev;
-
         tmp2->next = nextTmp;
         tmp2->prev = prevTmp;
     }
@@ -303,7 +302,7 @@ T DoublyLinkedList<T>::retrieveAt(ll index)
     if(isEmpty())
     {
         cout << "The list is EMPTY!\n";
-        exit(1);
+        return T();
     }
 
     Node* tmp = head;
@@ -346,7 +345,7 @@ bool DoublyLinkedList<T>::isItemAtEqual(T item , ll index)
     if(isEmpty())
     {
         cout << "The list is EMPTY!\n";
-        exit(1);
+        return T();
     }
 
     Node* tmp = head;

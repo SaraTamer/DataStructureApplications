@@ -43,7 +43,7 @@ T Stack_Q<T>::pop() {
         q1.dequeue();                // and removes  them from the first queue
     }
 
-    int result = q1.first();        //stores the element to be popped
+    T result = q1.first();        //stores the element to be popped
     q1.dequeue();
 
     q1 = q2;                        //puts all the elements back into the original queue
