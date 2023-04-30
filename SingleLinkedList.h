@@ -223,7 +223,7 @@ T SingleLinkedList<T>::retrieveAt(ll index) {
     if(isEmpty())
     {
         cout << "The list is EMPTY!\n";
-        exit(1);
+        return T();
     }
 
     Node<T>* tmp = head;
@@ -338,6 +338,11 @@ void SingleLinkedList<T>::swap(ll index1, ll index2) {
     Node<T>* temp = temp1->next;
     temp1->next = temp2->next;
     temp2->next = temp;
+
+
+    if (index2 == sz-1){
+        tail=temp1;
+    }
 }
 
 template<class T>

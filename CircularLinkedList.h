@@ -151,6 +151,7 @@ void CircularLinkedList<T>::removeAtHead() {
     else{
         Node *temp = head;
         head = head->next;
+        tail->next = head;
         delete (temp);
         sz--;
     }
@@ -226,12 +227,12 @@ T CircularLinkedList<T>::retrieveAt(long long int index) {
     if(index >= sz || index < 0)
     {
         cout << "Position out of scope!\n";
-        exit(1);
+        return T();
     }
     if(isEmpty())
     {
         cout << "The list is EMPTY!\n";
-        exit(1);
+        return T();
     }
 
     Node* tmp = head;
@@ -278,12 +279,12 @@ bool CircularLinkedList<T>::isItemAtEqual(T item, long long int index) {
     if(isEmpty())
     {
         cout << "The list is EMPTY!\n";
-        exit(1);
+        return false;
     }
     else if(index < 0 || index >= sz)
     {
         cout << "Position out of scope!\n";
-        exit(1);
+        return false;
     }
     else{
         Node* tmp = head;
@@ -298,6 +299,60 @@ bool CircularLinkedList<T>::isItemAtEqual(T item, long long int index) {
 
 template<class T>
 void CircularLinkedList<T>::swap(int index1, int index2) {
+    if (isEmpty()) {                            // check if the list is empty
+        cout << "The list is EMPTY!\n";
+        return;
+    } else if (index1 < 0 || index1 >= sz || index2 < 0 || index2 >= sz ) { // check if indices are out of range
+        cout << "Position out of scope!\n";
+        return;
+    } else if (index1 == index2) {              // check if indices are the same
+        return;
+    }
+
+    Node* temp1 = head;
+    Node* prev1 = nullptr;
+
+
+    for (ll i = 0; i < index1; i++) {       //prev1 is to point to the nodes to be swapped
+        prev1 = temp1;
+        temp1 = temp1->next;
+    }
+
+    Node* temp2 = head;
+    Node* prev2 = nullptr;
+
+
+    for (ll i = 0; i < index2 ; i++) {    //prev2 is to point to the nodes to be swapped
+        prev2 = temp2;
+        temp2 = temp2->next;
+    }
+
+    // update the previous node's next pointer to point to the swapped node
+    if (prev1) {                        //if there is a previous node
+        prev1->next = temp2;             //connect it to the other node to be swapped
+    }
+    else {
+        head = temp2;                    //make the other node as the head
+    }
+
+    // update the previous node's next pointer to point to the swapped node
+    if (prev2) {
+        prev2->next = temp1;
+    } else {
+        head = temp1;
+    }
+
+    // swap the next pointers of the nodes
+    Node* temp = temp1->next;
+    temp1->next = temp2->next;
+    temp2->next = temp;
+
+    if (index2 == sz-1){
+        tail=temp1;
+        tail->next = head;
+    }
+
+
 
 
 }
@@ -310,8 +365,6 @@ void CircularLinkedList<T>::print() {
         temp = temp->next;
     }
 
-    cout << endl;
-    cout << "Size of list: " << sz <<"\n";
 
 }
 
